@@ -15,13 +15,10 @@ module.exports = exports = (pathsArr, callback) => {
       if(err){
         callback(err);
       } else {
-        setTimeout(() => {
-          console.log('here');
-          callback(null, data.toString().trim());
-        }, 0);
+        callback(null, data.toString().trim());
       }
     });
   });
 
-  console.log(mappedFiles);
+  setTimeout(() => console.log(mappedFiles), 100);
 };
