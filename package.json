@@ -1,0 +1,23 @@
+{
+  "name": "03-async-callbacks",
+  "version": "1.0.0",
+  "description": "Creating a file reader with asynchronous calls in node",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest **/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexlhanson/03-async-callbacks.git"
+  },
+  "author": "Alex Hanson <alexlhanson@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexlhanson/03-async-callbacks/issues"
+  },
+  "homepage": "https://github.com/alexlhanson/03-async-callbacks#readme",
+  "dependencies": {
+    "eslint": "^5.5.0",
+    "jest": "^23.5.0"
+  }
+}
