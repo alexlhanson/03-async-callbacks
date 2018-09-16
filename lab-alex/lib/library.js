@@ -4,21 +4,33 @@ const fs = require('fs');
 
 module.exports = exports = (pathsArr, callback) => {
   //type guards
-  if (!Array.isArray(pathsArr)){
+  if (!Array.isArray(pathsArr)) {
     throw new Error('reader requires paths as an array');
-  } else if (pathsArr.length !== 3){
+  } else if (pathsArr.length !== 3) {
     throw new Error('reader requires three filepaths');
   }
+  let mappedFiles = [];
+
   //resolving map of files
-  let mappedFiles = pathsArr.map(file => {
-    fs.readFile(file, (err, data) => {
-      if(err){
+  fs.readFile(pathsArr[0], (err, data) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, mappedFiles.push(data.toString().trim()));
+    }
+    fs.readFile(pathsArr[1], (err, data) => {
+      if (err) {
         callback(err);
       } else {
-        callback(null, data.toString().trim());
+        callback(null, mappedFiles.push(data.toString().trim()));
       }
+      fs.readFile(pathsArr[2], (err, data) => {
+        if (err) {
+          callback(err);
+        } else {
+          callback(null, mappedFiles.push(data.toString().trim()));
+        }
+      });
     });
   });
-
-  setTimeout(() => console.log(mappedFiles), 100);
 };
