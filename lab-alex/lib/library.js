@@ -16,19 +16,19 @@ module.exports = exports = (pathsArr, callback) => {
     if (err) {
       callback(err);
     } else {
-      callback(null, mappedFiles.push(data.toString().trim()));
+      callback(null, mappedFiles.push(data.toString()));
     }
     fs.readFile(pathsArr[1], (err, data) => {
       if (err) {
         callback(err);
       } else {
-        callback(null, mappedFiles.push(data.toString().trim()));
+        callback(null, mappedFiles.push(data.toString()));
       }
       fs.readFile(pathsArr[2], (err, data) => {
         if (err) {
           callback(err);
         } else {
-          callback(null, mappedFiles.push(data.toString().trim()));
+          callback(null, mappedFiles.push(data.toString()));
         }
       });
     });
